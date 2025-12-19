@@ -71,6 +71,9 @@ ARGUMENTS = [
     DeclareLaunchArgument('log_level', default_value='error',
                           choices=['info', 'warn', 'error'],
                           description='log level'),
+    DeclareLaunchArgument('virtual_joy', default_value='false',
+                          choices=['true', 'false'],
+                          description='Use virtual joystick from rviz panel'),
 ]
 
 
@@ -286,6 +289,7 @@ def generate_launch_description():
                           ('vehicle', 'rdd2'),
                           ('sim', LaunchConfiguration('use_sim_time')),
                           ('joy', 'true'),
+                          ('virtual_joy', LaunchConfiguration('virtual_joy')),
                         ]
     )
 
